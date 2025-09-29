@@ -19,6 +19,9 @@
             --secondary-yellow: #FFC107;
             --white: #FFFFFF;
             --light-grey: #F5F5F5;
+            --bronze: #CD7F32;
+            --silver: #C0C0C0;
+            --gold: #FFD700;
         }
 
         /* Reset et styles de base */
@@ -379,7 +382,7 @@
             width: 30px;
         }
 
-        /* Section Sponsors */
+        /* Section Sponsors - UPDATED */
         .sponsors {
             background-color: var(--light-grey);
         }
@@ -392,6 +395,219 @@
 
         .sponsor-text {
             margin-bottom: 2rem;
+        }
+
+        .sponsorship-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sponsorship-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tier {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+
+        .tier:hover {
+            transform: translateY(-10px);
+        }
+
+        .tier-bronze {
+            border-color: var(--bronze);
+        }
+
+        .tier-silver {
+            border-color: var(--silver);
+        }
+
+        .tier-gold {
+            border-color: var(--gold);
+        }
+
+        .tier-header {
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .tier-bronze .tier-header {
+            background: var(--bronze);
+        }
+
+        .tier-silver .tier-header {
+            background: var(--silver);
+            color: var(--primary-black);
+        }
+
+        .tier-gold .tier-header {
+            background: var(--gold);
+            color: var(--primary-black);
+        }
+
+        .tier-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .tier-benefits {
+            padding: 1.5rem;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-list i {
+            margin-right: 10px;
+            color: var(--vibrant-yellow);
+        }
+
+        .benefit-highlight {
+            font-weight: bold;
+            color: var(--vibrant-yellow);
+        }
+
+        .donation-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .donation-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--vibrant-yellow);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .tier-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .tier-option input[type="radio"] {
+            display: none;
+        }
+
+        .tier-option label {
+            display: block;
+            padding: 0.8rem 1rem;
+            background-color: var(--light-grey);
+            border: 2px solid transparent;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tier-option input[type="radio"]:checked + label {
+            background-color: var(--vibrant-yellow);
+            border-color: var(--secondary-yellow);
+            font-weight: bold;
+        }
+
+        .custom-amount {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .custom-amount .form-control {
+            flex: 1;
+        }
+
+        .donation-summary {
+            background-color: var(--light-grey);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .donation-summary h3 {
+            margin-bottom: 1rem;
+            color: var(--vibrant-yellow);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-amount {
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 1px solid #ddd;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .sponsor-cards {
@@ -543,6 +759,22 @@
 
             .schedule-container {
                 grid-template-columns: 1fr;
+            }
+
+            .sponsorship-tiers {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .tier-options {
+                flex-direction: column;
+            }
+
+            .donation-section {
+                padding: 2rem 1rem;
             }
         }
     </style>
@@ -889,15 +1121,159 @@
         </div>
     </section>
 
-    <!-- Section Sponsors -->
+    <!-- Section Sponsors - UPDATED -->
     <section id="sponsors" class="sponsors">
         <div class="container">
             <h2>Nos Sponsors</h2>
             <div class="sponsors-content">
-                <div class="sponsor-text">
+                <div class="sponsorship-intro">
                     <p>Le Coq Carlanais Basketball Club compte sur le soutien de ses sponsors pour offrir les meilleures conditions d'entraînement et de compétition à ses joueurs.</p>
-                    <p>Votre entreprise souhaite soutenir le sport local et bénéficier d'une visibilité auprès de notre communauté? Contactez-nous pour devenir partenaire!</p>
+                    <p>En soutenant le Coq Carlanais, vous investissez dans la jeunesse et le sport de votre territoire. Votre partenariat nous permet de développer nos équipes, d'organiser des événements et d'offrir les meilleures conditions d'entraînement à nos 200 licenciés.</p>
                 </div>
+                
+                <div class="sponsorship-tiers">
+                    <!-- Formule Bronze -->
+                    <div class="tier tier-bronze">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Partenaire Bronze</h2>
+                            <p class="tier-price">50 - 500 €</p>
+                        </div>
+                        <div class="tier-benefits">
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-check"></i> Logo sur notre site internet</li>
+                                <li><i class="fas fa-check"></i> Mention sur nos réseaux sociaux</li>
+                                <li><i class="fas fa-check"></i> Logo sur nos supports de communication</li>
+                                <li><i class="fas fa-check"></i> Invitation à nos événements</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Logo sur nos équipements d'entraînement</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formule Argent -->
+                    <div class="tier tier-silver">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Partenaire Argent</h2>
+                            <p class="tier-price">500 - 1000 €</p>
+                        </div>
+                        <div class="tier-benefits">
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-check"></i> Tous les avantages Bronze</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Logo sur nos maillots d'entraînement</span></li>
+                                <li><i class="fas fa-check"></i> Mise en avant lors de notre tournoi annuel</li>
+                                <li><i class="fas fa-check"></i> Article dédié sur nos réseaux sociaux</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Bannière publicitaire dans notre salle</span></li>
+                                <li><i class="fas fa-check"></i> Remise des récompenses lors de notre tournoi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formule Or -->
+                    <div class="tier tier-gold">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Partenaire Or</h2>
+                            <p class="tier-price">1000 € et +</p>
+                        </div>
+                        <div class="tier-benefits">
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-check"></i> Tous les avantages Argent</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Logo sur nos maillots de match</span></li>
+                                <li><i class="fas fa-check"></i> Interview et article dédié sur nos réseaux</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Nom associé à une équipe (ex: "U15 sponsorisée par...")</span></li>
+                                <li><i class="fas fa-check"></i> Photo officielle avec l'équipe première</li>
+                                <li><i class="fas fa-check"></i> Invitation VIP à tous nos événements</li>
+                                <li><i class="fas fa-check"></i> <span class="benefit-highlight">Trophée Partenaire Officiel</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donation Form -->
+                <div class="donation-section">
+                    <h2>Devenir Partenaire</h2>
+                    <p>Choisissez votre niveau de partenariat ou saisissez un montant personnalisé.</p>
+                    
+                    <form class="donation-form" id="donation-form">
+                        <div class="form-group">
+                            <label for="sponsor-type">Type de partenariat</label>
+                            <div class="tier-options">
+                                <div class="tier-option">
+                                    <input type="radio" id="bronze" name="sponsor-tier" value="50">
+                                    <label for="bronze">Bronze (50€)</label>
+                                </div>
+                                <div class="tier-option">
+                                    <input type="radio" id="silver" name="sponsor-tier" value="500">
+                                    <label for="silver">Argent (500€)</label>
+                                </div>
+                                <div class="tier-option">
+                                    <input type="radio" id="gold" name="sponsor-tier" value="1000">
+                                    <label for="gold">Or (1000€)</label>
+                                </div>
+                                <div class="tier-option">
+                                    <input type="radio" id="custom" name="sponsor-tier" value="custom" checked>
+                                    <label for="custom">Personnalisé</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="custom-amount">Montant personnalisé (€)</label>
+                            <div class="custom-amount">
+                                <input type="number" id="custom-amount" class="form-control" min="10" step="5" value="100">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">Prénom</label>
+                                <input type="text" id="first-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Nom</label>
+                                <input type="text" id="last-name" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Entreprise (optionnel)</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="donation-summary">
+                            <h3>Récapitulatif de votre don</h3>
+                            <div class="summary-item">
+                                <span>Type de partenariat:</span>
+                                <span id="summary-tier">Personnalisé</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Montant:</span>
+                                <span id="summary-amount">100 €</span>
+                            </div>
+                            <div class="summary-item total-amount">
+                                <span>Total:</span>
+                                <span id="summary-total">100 €</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1.5rem;">Devenir Partenaire</button>
+                    </form>
+                </div>
+                
                 <div class="sponsor-cards">
                     <div class="sponsor-card">
                         <div class="sponsor-icon">
@@ -921,7 +1297,6 @@
                         <p>Participez au développement du sport et de la jeunesse dans notre région.</p>
                     </div>
                 </div>
-                <a href="https://www.facebook.com/coqcarlanaisbasket" class="btn" target="_blank" style="margin-top: 30px;">Devenir Sponsor</a>
             </div>
         </div>
     </section>
@@ -936,8 +1311,8 @@
                 </a>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/coqcarlanaisbasket" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/coq_carlanais/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://competitions.ffbb.com/ligues/occ/comites/0009/clubs/occ0009006" class="social-icon" target="_blank"><i class="fas fa-basketball-ball"></i></a>
                 </div>
                 <div class="footer-info">
                     <p>Salle Marcel Guichou, 09130 Carla Bayle, France</p>
@@ -982,6 +1357,71 @@
                     });
                 }
             });
+        });
+
+        // Donation Form Functionality
+        const donationForm = document.getElementById('donation-form');
+        const tierRadios = document.querySelectorAll('input[name="sponsor-tier"]');
+        const customAmountInput = document.getElementById('custom-amount');
+        const summaryTier = document.getElementById('summary-tier');
+        const summaryAmount = document.getElementById('summary-amount');
+        const summaryTotal = document.getElementById('summary-total');
+
+        // Update donation summary when tier selection changes
+        function updateDonationSummary() {
+            let selectedTier = document.querySelector('input[name="sponsor-tier"]:checked');
+            let amount = 0;
+            let tierName = '';
+            
+            if (selectedTier.id === 'custom') {
+                amount = parseInt(customAmountInput.value) || 0;
+                tierName = 'Personnalisé';
+            } else {
+                amount = parseInt(selectedTier.value);
+                tierName = selectedTier.parentElement.querySelector('label').textContent;
+            }
+            
+            summaryTier.textContent = tierName;
+            summaryAmount.textContent = amount + ' €';
+            summaryTotal.textContent = amount + ' €';
+        }
+
+        // Initialize donation summary
+        updateDonationSummary();
+
+        // Add event listeners for tier selection
+        tierRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.id === 'custom') {
+                    customAmountInput.disabled = false;
+                    customAmountInput.focus();
+                } else {
+                    customAmountInput.disabled = true;
+                }
+                updateDonationSummary();
+            });
+        });
+
+        // Update summary when custom amount changes
+        customAmountInput.addEventListener('input', updateDonationSummary);
+
+        // Form submission
+        donationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send this data to your server
+            // For this demo, we'll just show an alert
+            const formData = new FormData(donationForm);
+            const selectedTier = document.querySelector('input[name="sponsor-tier"]:checked');
+            const amount = selectedTier.id === 'custom' ? customAmountInput.value : selectedTier.value;
+            
+            alert(`Merci pour votre intérêt à devenir partenaire du Coq Carlanais!\n\nVous avez choisi le niveau: ${summaryTier.textContent}\nMontant: ${amount} €\n\nNous vous contacterons très prochainement pour finaliser votre partenariat.`);
+            
+            // Reset form
+            donationForm.reset();
+            document.getElementById('custom').checked = true;
+            customAmountInput.value = '100';
+            updateDonationSummary();
         });
     </script>
 </body>
