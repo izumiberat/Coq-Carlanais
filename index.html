@@ -95,6 +95,13 @@
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
         }
 
         .nav-menu {
@@ -278,37 +285,74 @@
             margin-bottom: 1rem;
         }
 
-        /* Section Calendrier */
+        .team-schedule {
+            background-color: var(--light-grey);
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Section Horaires */
         .schedule {
             background-color: var(--white);
         }
 
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
+        .schedule-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .schedule-day {
+            background-color: var(--light-grey);
+            border-radius: 8px;
+            padding: 1.5rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .schedule-table th {
-            background-color: var(--vibrant-yellow);
-            color: var(--primary-black);
-            padding: 1rem;
-            text-align: left;
+        .schedule-day h3 {
+            color: var(--vibrant-yellow);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
-        .schedule-table td {
-            padding: 1rem;
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
             border-bottom: 1px solid #ddd;
         }
 
-        .schedule-table tr:nth-child(even) {
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+
+        /* Section Facebook */
+        .facebook {
             background-color: var(--light-grey);
+        }
+
+        .facebook-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .facebook-icon {
+            font-size: 3rem;
+            color: #1877F2;
+            margin-bottom: 1.5rem;
         }
 
         /* Section Contact */
         .contact {
-            background-color: var(--light-grey);
+            background-color: var(--white);
         }
 
         .contact-container {
@@ -335,37 +379,51 @@
             width: 30px;
         }
 
-        .contact-form {
+        /* Section Sponsors */
+        .sponsors {
+            background-color: var(--light-grey);
+        }
+
+        .sponsors-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sponsor-text {
+            margin-bottom: 2rem;
+        }
+
+        .sponsor-cards {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .sponsor-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            max-width: 300px;
         }
 
-        .form-group label {
-            font-weight: 600;
+        .sponsor-card:hover {
+            transform: translateY(-5px);
         }
 
-        .form-control {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Open Sans', sans-serif;
+        .sponsor-icon {
+            font-size: 2.5rem;
+            color: var(--vibrant-yellow);
+            margin-bottom: 1rem;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--vibrant-yellow);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .sponsor-card h3 {
+            margin-bottom: 1rem;
         }
 
         /* Footer */
@@ -381,6 +439,21 @@
             align-items: center;
             gap: 2rem;
             text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .social-icons {
@@ -468,9 +541,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .schedule-table {
-                display: block;
-                overflow-x: auto;
+            .schedule-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -479,13 +551,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Coq Carlanais</a>
+            <a href="#" class="logo">
+                <img src="Coq_carlanais_logo.jpg" alt="Logo Coq Carlanais" class="logo-img">
+                Coq Carlanais
+            </a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#accueil" class="nav-link">Accueil</a></li>
                 <li class="nav-item"><a href="#club" class="nav-link">Le Club</a></li>
                 <li class="nav-item"><a href="#equipes" class="nav-link">Équipes</a></li>
-                <li class="nav-item"><a href="#calendrier" class="nav-link">Calendrier</a></li>
+                <li class="nav-item"><a href="#horaires" class="nav-link">Horaires</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#sponsors" class="nav-link">Sponsors</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -513,7 +589,7 @@
             <h2>Le Club</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Fondé en 1985, le Coq Carlanais est bien plus qu'un simple club de basket. C'est une véritable institution à Carla Bayle, un lieu de rassemblement où se mêlent passion du sport et esprit communautaire.</p>
+                    <p>Fondé en 1948, le Coq Carlanais est bien plus qu'un simple club de basket. C'est une véritable institution à Carla Bayle, un lieu de rassemblement où se mêlent passion du sport et esprit communautaire.</p>
                     <p>Notre mission est de promouvoir les valeurs du basket-ball auprès de tous les âges, en favorisant le développement personnel, l'esprit d'équipe et le fair-play dans un environnement bienveillant et compétitif.</p>
                 </div>
                 <div class="features">
@@ -549,95 +625,222 @@
             <h2>Nos Équipes</h2>
             <div class="team-cards">
                 <div class="team-card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U11 du Coq Carlanais" class="team-img">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U7/U9 du Coq Carlanais" class="team-img">
                     <div class="team-info">
-                        <h3>U11 - Baby Basket</h3>
-                        <p>Pour les plus jeunes (7-10 ans), initiation au basket avec une approche ludique et éducative.</p>
-                        <a href="#contact" class="btn">En Savoir Plus</a>
+                        <h3>U7 / U9</h3>
+                        <p>Pour les plus jeunes (nés de 2017 à 2019), découverte du basket avec une approche ludique et éducative.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Vendredi 17h30-18h30
+                        </div>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Équipe de basket U15 du Coq Carlanais" class="team-img">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Équipe de basket U11 du Coq Carlanais" class="team-img">
                     <div class="team-info">
-                        <h3>U13/U15 - Jeunes</h3>
-                        <p>Perfectionnement des fondamentaux et premières compétitions pour les 11-14 ans.</p>
-                        <a href="#contact" class="btn">En Savoir Plus</a>
+                        <h3>U11 Mixte</h3>
+                        <p>Initiation au basket pour les enfants nés en 2015/2016 avec développement des fondamentaux.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Mercredi 15h30-17h00<br>
+                            <strong>Match/Entraînement:</strong> Samedi 9h00-11h00
+                        </div>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="https://images.unsplash.com/photo-1519861155730-0b84f4e10370?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe senior masculine du Coq Carlanais" class="team-img">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U13 Filles du Coq Carlanais" class="team-img">
                     <div class="team-info">
-                        <h3>Seniors Masculins</h3>
-                        <p>Notre équipe phare qui évolue en championnat régional avec passion et détermination.</p>
-                        <a href="#contact" class="btn">En Savoir Plus</a>
+                        <h3>U13 Filles</h3>
+                        <p>Perfectionnement des fondamentaux et premières compétitions pour les filles nées en 2013/2014.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Mardi 18h00-19h30
+                        </div>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe senior féminine du Coq Carlanais" class="team-img">
+                    <img src="https://images.unsplash.com/photo-1519861155730-0b84f4e10370?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U13 Garçons du Coq Carlanais" class="team-img">
                     <div class="team-info">
-                        <h3>Seniors Féminines</h3>
+                        <h3>U13 Garçons</h3>
+                        <p>Développement des compétences techniques et tactiques pour les garçons nés en 2013/2014.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Mercredi 17h00-18h30
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U15 Filles du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>U15 Filles</h3>
+                        <p>Approfondissement technique et préparation aux compétitions pour les filles nées en 2011/2012.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Jeudi 18h00-19h30
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Équipe de basket U15 Garçons du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>U15 Garçons</h3>
+                        <p>Développement des compétences avancées pour les garçons nés en 2011/2012 en vue des compétitions.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Mercredi 18h30-20h00
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1519861155730-0b84f4e10370?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket U18 Garçons du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>U18 Garçons</h3>
+                        <p>Préparation au niveau senior pour les garçons nés de 2008 à 2010 avec un programme intensif.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Vendredi 18h30-20h00<br>
+                            <strong>Entraînement:</strong> Mercredi 20h00-22h00 (avec séniors)
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket Séniors du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>Séniors Garçons & Filles (Hoops)</h3>
+                        <p>Notre équipe phare qui évolue en championnat avec passion et détermination.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Lundi 20h30-22h30
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket Séniors Filles du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>Séniors Filles</h3>
                         <p>Une équipe dynamique et compétitive qui représente fièrement notre club en championnat.</p>
-                        <a href="#contact" class="btn">En Savoir Plus</a>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Vendredi 20h00-22h00
+                        </div>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe loisir du Coq Carlanais" class="team-img">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Équipe de basket Loisirs du Coq Carlanais" class="team-img">
                     <div class="team-info">
-                        <h3>Loisirs & Vétérans</h3>
+                        <h3>Basket Loisirs</h3>
                         <p>Pour ceux qui souhaitent pratiquer le basket pour le plaisir, sans la pression de la compétition.</p>
-                        <a href="#contact" class="btn">En Savoir Plus</a>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Mardi 19h30-21h00
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Équipe de basket Santé du Coq Carlanais" class="team-img">
+                    <div class="team-info">
+                        <h3>Basket Santé</h3>
+                        <p>Pratique adaptée du basket pour le bien-être et la santé, accessible à tous.</p>
+                        <div class="team-schedule">
+                            <strong>Entraînement:</strong> Jeudi 19h30-20h30
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Calendrier & Résultats -->
-    <section id="calendrier" class="schedule">
+    <!-- Section Horaires -->
+    <section id="horaires" class="schedule">
         <div class="container">
-            <h2>Calendrier & Résultats</h2>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Équipe Adversaire</th>
-                        <th>Lieu</th>
-                        <th>Résultat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>15 Oct 2023</td>
-                        <td>Basket Club Pamiers</td>
-                        <td>Gymnase de Carla Bayle</td>
-                        <td>78 - 65</td>
-                    </tr>
-                    <tr>
-                        <td>22 Oct 2023</td>
-                        <td>AS Mazères Basket</td>
-                        <td>Gymnase de Mazères</td>
-                        <td>72 - 68</td>
-                    </tr>
-                    <tr>
-                        <td>29 Oct 2023</td>
-                        <td>Basket Le Fossat</td>
-                        <td>Gymnase de Carla Bayle</td>
-                        <td>À venir</td>
-                    </tr>
-                    <tr>
-                        <td>5 Nov 2023</td>
-                        <td>ES Foix Basket</td>
-                        <td>Gymnase de Foix</td>
-                        <td>À venir</td>
-                    </tr>
-                    <tr>
-                        <td>12 Nov 2023</td>
-                        <td>US Lavelanet Basket</td>
-                        <td>Gymnase de Carla Bayle</td>
-                        <td>À venir</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Horaires d'Entraînement 2025/2026</h2>
+            <div class="schedule-container">
+                <div class="schedule-day">
+                    <h3>Lundi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">20h30 - 22h30</span>
+                        <span>Séniors Garçons & Filles (Hoops)</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Mardi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">18h00 - 19h30</span>
+                        <span>U13 Filles</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">19h30 - 21h00</span>
+                        <span>Basket Loisirs</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Mercredi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">15h30 - 17h00</span>
+                        <span>U11 Mixte</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">17h00 - 18h30</span>
+                        <span>U13 Garçons</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">18h30 - 20h00</span>
+                        <span>U15 Garçons</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">20h00 - 22h00</span>
+                        <span>U18 / Séniors Garçons</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Jeudi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">18h00 - 19h30</span>
+                        <span>U15 Filles</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">19h30 - 20h30</span>
+                        <span>Basket Santé</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Vendredi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">17h30 - 18h30</span>
+                        <span>U7 / U9</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">18h30 - 20h00</span>
+                        <span>U18 Garçons</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">20h00 - 22h00</span>
+                        <span>Séniors Filles</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Samedi</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9h00 - 11h00</span>
+                        <span>U11 Entraînement ou Match</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">11h00 - 22h00</span>
+                        <span>Match</span>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Dimanche</h3>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9h00 - 13h00</span>
+                        <span>U9 Plateau ou Stage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Facebook -->
+    <section class="facebook">
+        <div class="container">
+            <div class="facebook-content">
+                <div class="facebook-icon">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <h2>Calendrier & Résultats</h2>
+                <p>Retrouvez tous les matchs, résultats et actualités du club sur notre page Facebook.</p>
+                <a href="https://www.facebook.com/coqcarlanaisbasket" class="btn" target="_blank">Voir sur Facebook</a>
+            </div>
         </div>
     </section>
 
@@ -653,7 +856,8 @@
                         </div>
                         <div>
                             <h3>Adresse</h3>
-                            <p>Gymnase de Carla Bayle<br>09130 Carla Bayle, France</p>
+                            <p>Salle Marcel Guichou<br>09130 Carla Bayle, France</p>
+                            <a href="https://maps.app.goo.gl/26G7AS5bg4rqvmGN7" target="_blank" class="btn" style="margin-top: 10px;">Voir sur la carte</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -662,19 +866,7 @@
                         </div>
                         <div>
                             <h3>Horaires d'entraînement</h3>
-                            <p>U11/U13: Mercredi 14h-16h<br>
-                               U15: Mardi 18h-20h<br>
-                               Seniors: Lundi & Jeudi 19h-21h<br>
-                               Loisirs: Vendredi 18h-20h</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>contact@coqcarlanais.fr</p>
+                            <p>Consultez notre planning complet dans la section "Horaires" ci-dessus.</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -683,29 +875,53 @@
                         </div>
                         <div>
                             <h3>Téléphone</h3>
-                            <p>+33 5 61 68 75 42</p>
+                            <p>05 61 68 51 32 (Mairie du Carla)</p>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nom</label>
-                        <input type="text" id="name" class="form-control" required>
+                <div>
+                    <h3>Rejoignez-nous</h3>
+                    <p>Intéressé pour rejoindre notre club? Venez nous rencontrer lors d'un entraînement ou contactez-nous via notre page Facebook.</p>
+                    <p>Nous accueillons les joueurs de tous niveaux et de tous âges, du débutant au confirmé.</p>
+                    <a href="https://www.facebook.com/coqcarlanaisbasket" class="btn" target="_blank" style="margin-top: 20px;">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Sponsors -->
+    <section id="sponsors" class="sponsors">
+        <div class="container">
+            <h2>Nos Sponsors</h2>
+            <div class="sponsors-content">
+                <div class="sponsor-text">
+                    <p>Le Coq Carlanais Basketball Club compte sur le soutien de ses sponsors pour offrir les meilleures conditions d'entraînement et de compétition à ses joueurs.</p>
+                    <p>Votre entreprise souhaite soutenir le sport local et bénéficier d'une visibilité auprès de notre communauté? Contactez-nous pour devenir partenaire!</p>
+                </div>
+                <div class="sponsor-cards">
+                    <div class="sponsor-card">
+                        <div class="sponsor-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Devenir Sponsor</h3>
+                        <p>Plusieurs formules de partenariat disponibles selon votre entreprise et vos objectifs.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
+                    <div class="sponsor-card">
+                        <div class="sponsor-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Visibilité</h3>
+                        <p>Bénéficiez d'une visibilité locale et régionale auprès d'une communauté engagée.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" class="form-control" required>
+                    <div class="sponsor-card">
+                        <div class="sponsor-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <h3>Soutien Local</h3>
+                        <p>Participez au développement du sport et de la jeunesse dans notre région.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Envoyer</button>
-                </form>
+                </div>
+                <a href="https://www.facebook.com/coqcarlanaisbasket" class="btn" target="_blank" style="margin-top: 30px;">Devenir Sponsor</a>
             </div>
         </div>
     </section>
@@ -714,16 +930,18 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">Coq Carlanais</div>
+                <a href="#" class="footer-logo">
+                    <img src="Coq_carlanais_logo.jpg" alt="Logo Coq Carlanais" class="footer-logo-img">
+                    Coq Carlanais
+                </a>
                 <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/coqcarlanaisbasket" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="footer-info">
-                    <p>Gymnase de Carla Bayle, 09130 Carla Bayle, France</p>
-                    <p>contact@coqcarlanais.fr | +33 5 61 68 75 42</p>
+                    <p>Salle Marcel Guichou, 09130 Carla Bayle, France</p>
+                    <p>05 61 68 51 32 (Mairie) | coqcarlanais@example.fr</p>
                 </div>
                 <div class="copyright">
                     <p>&copy; 2023 Coq Carlanais Basketball. Tous droits réservés.</p>
